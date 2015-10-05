@@ -1,78 +1,70 @@
-<!DOCTYPE html>
-<html ng-app>
 
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="钟兴志的空间 : 技术博客" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css"/>
+<script src="javascripts/angular.min.js"></script>
+<title>DIV+CSS布局教程</title>
+<style type="text/css">
+#Container{
+	width:1000px;
+	margin:0 auto;/*设置整个容器在浏览器中水平居中*/
+	background:#CF3;
+}
+#Header{
+	height:80px;
+	background:#093;
+}
+#logo{
+	padding-left:50px;
+	padding-top:20px;
+	padding-bottom:50px;
+}
+#Content{
+	height:600px;
+	/*此处对容器设置了高度，一般不建议对容器设置高度，一般使用overflow:auto;属性设置容器根据内容自适应高度，如果不指定高度或不设置自适应高度，容器将默认为1个字符高度，容器下方的布局元素（footer）设置margin-top:属性将无效*/
+	margin-top:20px;/*此处讲解margin的用法，设置content与上面header元素之间的距离*/
+	background:#0FF;
+	
+}
+#Content-Left{
+	height:400px;
+	width:200px;
+	margin:20px;/*设置元素跟其他元素的距离为20像素*/
+	float:left;/*设置浮动，实现多列效果，div+Css布局中很重要的*/
+	background:#90C;
+}
+#Content-Main{
+	height:400px;
+	width:720px;
+	margin:20px;/*设置元素跟其他元素的距离为20像素*/
+	float:left;/*设置浮动，实现多列效果，div+Css布局中很重要的*/
+	background:#90C;
+}
+/*注：Content-Left和Content-Main元素是Content元素的子元素，两个元素使用了float:left;设置成两列，这个两个元素的宽度和这个两个元素设置的padding、margin的和一定不能大于父层Content元素的宽度，否则设置列将失败*/
+#Footer{
+	height:40px;
+	background:#90C;
+	margin-top:20px;
+}
+.Clear{
+	clear:both;
+}
+</style>
+</head>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css"/>
-    <script src="javascripts/angular.min.js"></script>
-    <title>钟兴志的空间</title>
-  </head>
-
-  <body>
-
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/zhongxingzhi">View on GitHub</a>
-
-          <h1 id="project_title">钟兴志的空间</h1>
-          <h2 id="project_tagline">技术博客</h2>
-
-        </header>
+<body>
+<div id="Container">
+	<div id="Header">
+		<div id="logo">这里设置了padding属性介绍一下padding的用法,padding将设置文本与边框的距离。</div>
     </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
-
-<div>
-    <button>Click Me</button>
-    <input type='text' ng-model='name'></input>
-    <p>{{name}}</p>
+    <div id="Content">
+    	<div id="Content-Left">Content-Left</div>
+        <div id="Content-Main">Content-Main</div>
+    </div>
+    <div class="Clear"><!--如何你上面用到float,下面布局开始前最好清除一下。--></div>
+    <div id="Footer">Footer</div>
 </div>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-  </body>
+</body>
 </html>

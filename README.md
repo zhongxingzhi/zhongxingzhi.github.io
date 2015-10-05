@@ -1,4 +1,3 @@
 zhongxingzhi.github.io
 ======================
-
-技术博客
+Technical Blog
